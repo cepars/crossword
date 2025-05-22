@@ -1,41 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Find the Zoo Animals</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; }
-    #mysearchtask { margin-top: 20px; }
-  </style>
-</head>
-<body>
-  <h2>Find the Zoo Animals</h2>
-  <div id="mysearchtask">Loading...</div>
+<script src="wordsearch.min.js"></script>
+<script>
+  const grid = [
+    ['S','P','A','N','D','A','T','I','G','E','R','Z','P','R'],
+    ['P','S','B','A','R','R','O','T','S','E','K','E','O','L'],
+    ['B','H','M','G','O','R','I','L','L','A','F','J','N','T'],
+    ['N','P','P','J','S','A','V','T','Y','T','F','K','G','A'],
+    ['H','Y','G','N','O','S','V','K','U','A','Z','U','G','G']
+  ];
+  const words = ["TIGER", "PARROTS", "GORILLA", "WOLF", "HIPPO", "SNAKE",
+      "RHINO", "ELEPHANT", "PANDA", "LION", "BEAR", "ZEBRA",
+      "FOX", "APE", "ANT"];
 
-  <script src="wordsearch.min.js"></script>
-  <script>
-    const grid = [
-      ['S','P','A','N','D','A','T','I','G','E','R','Z','P','R'],
-      ['P','S','B','A','R','R','O','T','S','E','K','E','O','L'],
-      ['B','H','M','G','O','R','I','L','L','A','F','J','N','T'],
-      ['N','P','P','J','S','A','V','T','Y','T','F','K','G','A'],
-      ['H','Y','G','N','O','S','V','K','U','A','Z','U','G','G']
-    ];
-
-    const words = [
-      'TIGER', 'PARROTS', 'GORILLA', 'WOLF', 'HIPPO', 'SNAKE',
-      'RHINO', 'ELEPHANT', 'PANDA', 'LION', 'BEAR', 'ZEBRA',
-      'FOX', 'APE', 'ANT'
-    ];
-
-    const ws = new WordSearch({
-      grid: grid,
-      words: words,
-      parentId: "mysearchtask",
-      onFindWord: function(word) {
-        console.log("Found:", word);
-      }
-    });
-  </script>
-</body>
-</html>
+  new WordSearch({
+    grid: grid,
+    words: words,
+    parentId: "puzzle"
+  });
+</script>
