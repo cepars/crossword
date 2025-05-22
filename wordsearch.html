@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Word Search Puzzle</title>
+    <script src="https://cdn.jsdelivr.net/gh/loicteixeira/wordsearch@latest/wordsearch.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #mysearchtask { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Find the Zoo Animals</h2>
+    <div id="mysearchtask"></div>
+    <script>
+        var zooGrid = [
+            ['S','P','A','N','D','A','T','I','G','E','R','Z','P','R'],
+            ['P','S','B','P','A','R','R','O','T','S','E','K','E','O'],
+            ['B','H','M','G','O','R','I','L','L','A','F','J','N','T'],
+            ['N','P','P','J','J','A','V','T','Y','T','F','K','G','A'],
+            ['H','J','Y','G','N','O','S','V','K','U','A','Z','U','G'],
+            ['V','D','U','Q','O','Y','E','O','A','I','R','A','I','I'],
+            ['W','O','L','F','I','E','U','Q','L','D','I','I','N','L'],
+            ['E','O','G','F','L','K','Q','B','X','P','G','K','A','L'],
+            ['B','R','D','Z','V','N','N','E','H','I','P','P','O','A'],
+            ['O','A','S','E','L','O','J','A','S','N','A','K','E','T'],
+            ['M','G','B','B','Y','M','G','R','W','M','B','B','F','G'],
+            ['V','N','P','R','H','I','N','O','A','N','O','D','M','R'],
+            ['P','A','J','A','S','U','B','P','Q','P','H','V','Q','P'],
+            ['F','K','O','I','E','L','E','P','H','A','N','T','K','R']
+        ];
+
+        var animalnames = [
+            'TIGER', 'PARROTS', 'GORILLA', 'WOLF', 'HIPPO', 'SNAKE',
+            'RHINO', 'ELEPHANT', 'PANDA', 'LION', 'BEAR', 'ZEBRA',
+            'FOX', 'APE', 'ANT'
+        ];
+
+        new WordSearch({
+            "grid": zooGrid,
+            "words": animalnames,
+            "parentId": "mysearchtask"
+        });
+    </script>
+</body>
+</html>
