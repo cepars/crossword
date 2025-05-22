@@ -20,7 +20,10 @@
       ['N','P','P','J','S','A','V','T','Y','T','F','K','G','A'],
       ['H','Y','G','N','O','S','V','K','U','A','Z','U','G','G']
     ];
-    const words = ["PANDA", "TIGER", "GORILLA", "PARROT"];
+    const words = [
+      "PANDA", "TIGER", "ZOO", "PARROT", "GORILLA",
+      "BAT", "JAGUAR", "FOX", "SNAKE", "MONKEY", "LION"
+    ];
 
     let html = '<table>';
     grid.forEach(row => {
@@ -30,7 +33,7 @@
       });
       html += '</tr>';
     });
-    html += '</table><p>Find: ' + words.join(', ') + '</p>';
+    html += '</table><p>Find as many animals as possible.</p>';
     document.getElementById('puzzle').innerHTML = html;
   </script>
 </body>
