@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Find the Zoo Animals</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #puzzle { margin: auto; }
+  </style>
+</head>
+<body>
+  <h2>Find the Zoo Animals</h2>
+  <div id="puzzle">Loading...</div>
+
+  <script>
+    const grid = [
+      ['S','P','A','N','D','A','T','I','G','E','R','Z','P','R'],
+      ['P','S','B','A','R','R','O','T','S','E','K','E','O','L'],
+      ['B','H','M','G','O','R','I','L','L','A','F','J','N','T'],
+      ['N','P','P','J','S','A','V','T','Y','T','F','K','G','A'],
+      ['H','Y','G','N','O','S','V','K','U','A','Z','U','G','G']
+    ];
+    const words = ["PANDA", "TIGER", "GORILLA", "PARROT"];
+
+    let html = '<table>';
+    grid.forEach(row => {
+      html += '<tr>';
+      row.forEach(letter => {
+        html += `<td style="padding:5px;border:1px solid #ccc;font-size:20px">${letter}</td>`;
+      });
+      html += '</tr>';
+    });
+    html += '</table><p>Find: ' + words.join(', ') + '</p>';
+    document.getElementById('puzzle').innerHTML = html;
+  </script>
+</body>
+</html>
