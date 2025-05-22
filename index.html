@@ -1,56 +1,41 @@
-class WordSearch {
-  constructor({ grid, words, parentId, onFindWord }) {
-    this.grid = grid;
-    this.words = words;
-    this.parentId = parentId;
-    this.onFindWord = onFindWord;
-    this.found = new Set();
-    this.timing = [];
-    this.start = Date.now();
-    this.drawGrid();
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Find the Zoo Animals</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #mysearchtask { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Find the Zoo Animals</h2>
+  <div id="mysearchtask">Loading...</div>
 
-  drawGrid() {
-    const parent = document.getElementById(this.parentId);
-    let html = '<table style="margin:auto">';
-    this.grid.forEach((row, i) => {
-      html += '<tr>';
-      row.forEach((letter, j) => {
-        html += `<td id="cell-${i}-${j}" style="padding:5px;border:1px solid #ccc;font-size:20px;text-align:center;cursor:pointer">${letter}</td>`;
-      });
-      html += '</tr>';
+  <script src="wordsearch.min.js"></script>
+  <script>
+    const grid = [
+      ['S','P','A','N','D','A','T','I','G','E','R','Z','P','R'],
+      ['P','S','B','A','R','R','O','T','S','E','K','E','O','L'],
+      ['B','H','M','G','O','R','I','L','L','A','F','J','N','T'],
+      ['N','P','P','J','S','A','V','T','Y','T','F','K','G','A'],
+      ['H','Y','G','N','O','S','V','K','U','A','Z','U','G','G']
+    ];
+
+    const words = [
+      'TIGER', 'PARROTS', 'GORILLA', 'WOLF', 'HIPPO', 'SNAKE',
+      'RHINO', 'ELEPHANT', 'PANDA', 'LION', 'BEAR', 'ZEBRA',
+      'FOX', 'APE', 'ANT'
+    ];
+
+    const ws = new WordSearch({
+      grid: grid,
+      words: words,
+      parentId: "mysearchtask",
+      onFindWord: function(word) {
+        console.log("Found:", word);
+      }
     });
-    html += '</table>';
-    parent.innerHTML = html;
-    this.enableClicks();
-  }
-
-  enableClicks() {
-    const selected = [];
-    this.grid.forEach((row, i) => {
-      row.forEach((_, j) => {
-        const cell = document.getElementById(`cell-${i}-${j}`);
-        cell.addEventListener("click", () => {
-          cell.style.backgroundColor = "yellow";
-          selected.push({ i, j, l: cell.textContent });
-          const str = selected.map(e => e.l).join("");
-          this.words.forEach(word => {
-            if (str.includes(word) && !this.found.has(word)) {
-              this.found.add(word);
-              this.timing.push((Date.now() - this.start) / 1000);
-              if (this.onFindWord) this.onFindWord(word);
-            }
-          });
-        });
-      });
-    });
-  }
-
-  getScore() {
-    return this.found.size;
-  }
-
-  getTiming() {
-    return this.timing;
-  }
-}
+  </script>
+</body>
+</html>
